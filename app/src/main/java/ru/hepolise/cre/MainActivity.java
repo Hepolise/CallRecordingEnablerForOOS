@@ -27,9 +27,7 @@ public class MainActivity extends AppCompatActivity {
         String[] request = new String[]{Manifest.permission.READ_PHONE_STATE,
                 Manifest.permission.PROCESS_OUTGOING_CALLS};
 
-        if ((checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
-                || (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED)
-                || (checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
+        if ((checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
                 || (checkSelfPermission(Manifest.permission.PROCESS_OUTGOING_CALLS) != PackageManager.PERMISSION_GRANTED)) {
             requestPermissions(request,
                     REQUEST_CODE_ASK_PERMISSIONS);
