@@ -6,7 +6,7 @@ import android.content.Intent;
 
 public class OnBoot extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
-        CallReceiver.enableCallRecording(context);
+        CallReceiver.enableCallRecording(context, false);
     }
 }
 

@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
     public void enableCallRecording(View view) {
-        CallReceiver.enableCallRecording(getApplicationContext());
+        CallReceiver.enableCallRecording(getApplicationContext(), true);
     }
     public void onCheckBoxClicked(View view) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);

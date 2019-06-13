@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_SUPERUSER"/>
     <application
         android:allowBackup="true"
-        android:icon="@drawable/baseline_record_voice_over_black_48"
+        android:icon="@drawable/baseline_record_voice_over_24_teal"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">

@@ -21,7 +21,7 @@ public class CallReceiver extends PhonecallReceiver {
     @Override
     protected void onIncomingCallReceived(Context ctx, String number, Date start)
     {
-        enableCallRecording(ctx);
+        enableCallRecording(ctx, false);
         Log.d(TAG, "incoming call received");
     }
 
@@ -40,7 +40,7 @@ public class CallReceiver extends PhonecallReceiver {
     @Override
     protected void onOutgoingCallStarted(Context ctx, String number, Date start)
     {
-        enableCallRecording(ctx);
+        enableCallRecording(ctx, false);
         Log.d(TAG, "outgoing call started");
     }
 
@@ -56,15 +56,15 @@ public class CallReceiver extends PhonecallReceiver {
         //
     }
     static Context contextGlobal;
-    public static void enableCallRecording(Context context) {
+    public static void enableCallRecording(Context context, boolean force) {
         Log.d(TAG, "Call Recording Enabler started");
         try {
-            if (Settings.Global.getInt(context.getContentResolver(), "op_voice_recording_supported_by_mcc") == 0) {
+            if ((Settings.Global.getInt(context.getContentResolver(), "op_voice_recording_supported_by_mcc") == 0) || force ) {
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-                if (sharedPreferences.getBoolean(MainActivity.prefName, true))
-                    Toast.makeText(context, "Enabling call recording", Toast.LENGTH_SHORT).show();
                 try {
                     Settings.Global.putInt(context.getContentResolver(), "op_voice_recording_supported_by_mcc", 1);
+                    if (sharedPreferences.getBoolean(MainActivity.prefName, true))
+                        Toast.makeText(context, "Call Recording is enabled", Toast.LENGTH_SHORT).show();
                 } catch (SecurityException e) {
                     Toast.makeText(context, "Trying to get secure permission...", Toast.LENGTH_SHORT).show();
                     Log.e(TAG, "Permission not granted: " + e.getLocalizedMessage());

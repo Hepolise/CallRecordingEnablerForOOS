@@ -34,4 +34,20 @@
         android:onClick="onCheckBoxClicked"
         android:text="Show toast when recording was enabled" />
 
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true"
+        android:text="or you can give permission by ADB" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/start"
+        android:layout_centerHorizontal="true"
+        android:text="Root permission will be requested" />
+
 </RelativeLayout>
