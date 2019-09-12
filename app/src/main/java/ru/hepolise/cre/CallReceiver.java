@@ -63,7 +63,7 @@ public class CallReceiver extends PhonecallReceiver {
                 SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
                 try {
                     Settings.Global.putInt(context.getContentResolver(), "op_voice_recording_supported_by_mcc", 1);
-                    if (sharedPreferences.getBoolean(MainActivity.prefName, true))
+                    if (sharedPreferences.getBoolean(MainActivity.getPrefName(), true))
                         Toast.makeText(context, "Call Recording is enabled", Toast.LENGTH_SHORT).show();
                 } catch (SecurityException e) {
                     Toast.makeText(context, "Trying to get secure permission...", Toast.LENGTH_SHORT).show();

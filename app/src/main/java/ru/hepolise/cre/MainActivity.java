@@ -11,8 +11,11 @@ import android.view.View;
 import android.widget.CheckBox;
 
 public class MainActivity extends AppCompatActivity {
-    CheckBox checkBox;
-    public static String prefName = "toast_enabled";
+    private CheckBox checkBox;
+    private static String prefName = "toast_enabled";
+    static String getPrefName() {
+        return prefName;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,11 +27,9 @@ public class MainActivity extends AppCompatActivity {
     }
     private void permissions() {
         int REQUEST_CODE_ASK_PERMISSIONS = 123;
-        String[] request = new String[]{Manifest.permission.READ_PHONE_STATE,
-                Manifest.permission.PROCESS_OUTGOING_CALLS};
+        String[] request = new String[]{Manifest.permission.READ_PHONE_STATE};
 
-        if ((checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)
-                || (checkSelfPermission(Manifest.permission.PROCESS_OUTGOING_CALLS) != PackageManager.PERMISSION_GRANTED)) {
+        if ((checkSelfPermission(Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED)) {
             requestPermissions(request,
                     REQUEST_CODE_ASK_PERMISSIONS);
         }
